@@ -52,8 +52,8 @@ int main (int argc, char **argv)
 		//allocating space for a buffer.		
 		buffer = malloc (sizeof(char) * strlen(argv[2]) * 2);
 		//initially front points to a second half of the buffer.
-		front = buffer + strlen(argv[2]);
-		back = buffer + strlen(argv[2]);
+		front = (char *) buffer + strlen(argv[2]);
+		back = (char *) buffer + strlen(argv[2]);
 		
 		//a loop that reading an input file to the second half of the buffer.
 		while(scanned_size = fread(back, sizeof(char), strlen(argv[2]), input_file))
@@ -79,7 +79,7 @@ int main (int argc, char **argv)
 					count++;
 				}
 				//updating front pointer to point to next byte.
-				front += 1;
+				(char *) front += 1;
 			} 
 		}
 		
