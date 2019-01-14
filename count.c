@@ -83,6 +83,12 @@ int main (int argc, char **argv)
 			} 
 		}
 		
+		//equivalence check.
+		if (memcmp(front, search_string, strlen(argv[2])) == 0)
+		{
+			count++;
+		}
+		
 		//printing results to the screen.
 		printf("Size of the file: %d\n", size_of_file);
 		printf("Number of matches found: %d\n", count);
