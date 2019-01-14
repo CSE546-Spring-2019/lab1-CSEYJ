@@ -19,8 +19,32 @@ int main (int argc, char **argv)
 	if (argc > 3 && strlen(argv[2]) > 0) 
 	{
 		FILE *input_file = fopen(argv[1],"rb");
+
+		if(input_file == NULL)
+		{
+			printf("Failed to open the input file.\n");
+			return 0;
+		}
+
 		FILE *output_file = fopen(argv[3],"wb");
+
+		if(output_file == NULL)
+		{
+			fclose(input_file);
+			printf("Failed to open the ouput file.\n");
+			return 0;
+		}		
+
 		search_string = malloc(strlen(argv[2]));
+
+		if(search_string == NULL)
+		{
+			fclose(input_file);
+			fclose(output_file);
+			printf("Failed to allocate a memory space.\n");
+			return 0;
+		}
+
 		strcpy(search_string, argv[2]);
 		
 		buffer = malloc (sizeof(char) * strlen(argv[2]) * 2);
