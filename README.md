@@ -1,8 +1,8 @@
 # lab 1
 
 ## Description
-Author: CSEYJ (Yongjeong Kim).
-This program takes a string to search and names of an input file and an output file, printing a number of occurrences to a screen and the output file.
+* Author: CSEYJ (Yongjeong Kim).
+* This program takes a string to search and names of an input file and an output file, printing a number of occurrences to a screen and the output file.
 
 ## Commands to compile and run
 In order to compile a file, at the file directory, type 
