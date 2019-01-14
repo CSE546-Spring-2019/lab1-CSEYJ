@@ -15,7 +15,7 @@ int main (int argc, char **argv)
 	void *front = NULL;
 	void *back = NULL;
 
-
+	//chekcing number of arguments.
 	if (argc > 3 && strlen(argv[2]) > 0) 
 	{
 		//Opening input_file.
