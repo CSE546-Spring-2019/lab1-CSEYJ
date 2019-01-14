@@ -79,7 +79,7 @@ int main (int argc, char **argv)
 					count++;
 				}
 				//updating front pointer to point to next byte.
-				(char *) front += 1;
+				front = (char *) front + 1;
 			} 
 		}
 		
