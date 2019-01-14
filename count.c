@@ -18,6 +18,12 @@ int main (int argc, char **argv)
 	//chekcing number of arguments.
 	if (argc > 3 && strlen(argv[2]) > 0) 
 	{
+		if (strcmp(argv[1], argv[3]) == 0)
+		{
+			printf("Names of the input file and the output file are identical.\n");
+			return 0;
+		}
+		
 		//Opening input_file.
 		FILE *input_file = fopen(argv[1],"rb");
 		if(input_file == NULL)
