@@ -2,9 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-int compare(void *front, void *search_string, int length);
-void shift(void *front, void *back, int length);
-
 int main (int argc, char **argv)
 {
 
@@ -29,6 +26,7 @@ int main (int argc, char **argv)
 		buffer = malloc (sizeof(char) * strlen(argv[2]) * 2);
 		front = buffer + strlen(argv[2]);
 		back = buffer + strlen(argv[2]);
+
 		while(scanned_size = fread(back, sizeof(char), strlen(argv[2]), input_file))
 		{ 
 			size_of_file += scanned_size;
@@ -37,10 +35,14 @@ int main (int argc, char **argv)
 				if (front == back)
 				{
 					front = buffer;
-					shift(front, back, strlen(argv[2]));
+					memmove(front, back, scanned_size);
 					break;
 				} 
-				count += compare(front, search_string, strlen(argv[2]));
+				
+				if (memcmp(front, search_string, strlen(argv[2])) == 0)
+				{
+					count++;
+				}
 				front += 1;
 			} 
 		}
@@ -64,41 +66,6 @@ int main (int argc, char **argv)
 }
 
 
-int compare(void *front, void *search_string, int length) 
-{
-	void *current = front;
-	void *s_string = search_string;
-	if(length > 0)
-	{
-		while (length > 0)
-		{
-			if (*(char *) current != *(char *) s_string) 
-			{
-				return 0;
-			}
-			current += 1;
-			s_string += 1;
-			length--;
-		}
-		return 1;
-	} else 
-	{
-		return 0;
-	}
-}
 
-void shift(void *front, void *back, int length)
-{
-	int i = 0;
-	for(i = 0; i < length; i++)
-	{
-		if(back != NULL)
-		{
-			*((char *) front + i) = *((char *) back + i);
-		} else 
-		{
-			break;
-		}
-	}
-}
+
 
