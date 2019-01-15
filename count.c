@@ -4,7 +4,7 @@
 
 int main (int argc, char **argv)
 {
-	int size_of_file = 0;
+	unsigned long long int size_of_file = 0;
 	int scanned_size = 0;
 	int count = 0;
 	int i = 0;
@@ -87,6 +87,7 @@ int main (int argc, char **argv)
 				//updating front pointer to point to next byte.
 				front = (char *) front + 1;
 			} 
+			scanned_size = 0;
 		}
 		
 		//equivalence check.
@@ -96,12 +97,12 @@ int main (int argc, char **argv)
 		}
 		
 		//printing results to the screen.
-		printf("Size of the file: %d\n", size_of_file);
-		printf("Number of matches found: %d\n", count);
+		printf("Size of the file: %ld\n", size_of_file);
+		printf("Number of matches found: %ld\n", count);
 
 		//printing results to the output file.
-		fprintf(output_file, "Size of the file: %d\n", size_of_file);
-		fprintf(output_file, "Number of matches found: %d\n", count);
+		fprintf(output_file, "Size of the file: %ld\n", size_of_file);
+		fprintf(output_file, "Number of matches found: %ld\n", count);
 		
 		//freeing spaces and closing input_file and output_file.
 		free(buffer);
